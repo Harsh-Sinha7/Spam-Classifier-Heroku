@@ -43,13 +43,6 @@ def process_text(text):
 
 df['text']=df['text'].apply(process_text)
 
-from nltk.stem import PorterStemmer
-stemmer = PorterStemmer()
-
-def stemming (text):
-    return ''.join([stemmer.stem(word) for word in text])
-df['text']=df['text'].apply(stemming)
-
 from sklearn.feature_extraction.text import CountVectorizer
 vectorizer= CountVectorizer()
 message_bow = vectorizer.fit_transform(df['text'])
