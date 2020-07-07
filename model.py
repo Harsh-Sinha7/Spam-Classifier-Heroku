@@ -16,16 +16,6 @@ print(df['spam'].value_counts)
 
 sns.countplot(df['spam'])
 
-from nltk import word_tokenize
-
-def count_words(text):
-    words = word_tokenize(text)
-    return len(words)
-
-df['count']=df['text'].apply(count_words)
-
-print(df.groupby('spam')['count'].mean())
-
 #Function to remove punctuation and stop words
 import string
 
